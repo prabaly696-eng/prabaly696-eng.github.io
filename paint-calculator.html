@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paint Calculator: How Much Paint for a Room</title>
+<meta name="description" content="Estimate gallons or liters of paint for a room from its size, doors, windows and number of coats. Includes the formula, a worked example and assumptions.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/paint-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Paint Calculator: How Much Paint for a Room">
+<meta property="og:description" content="Estimate gallons or liters of paint for a room from its size, doors, windows and number of coats. Includes the formula, a worked example and assumptions.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/paint-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Paint Calculator","item":"https://prabaly696-eng.github.io/measure-twice/paint-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html" aria-current="page">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Paint Calculator</p>
+<h1>Paint Calculator</h1>
+<p class="lede">Estimate how much paint the walls of a room need. Enter the room size, doors, windows, coats and the coverage printed on the can.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Room length (feet)","value":"14","hint":"Example: 14."},"metric":{"label":"Room length (meters)","value":"4.3","hint":"Example: 4.3."}}'>
+      <label for="length">Room length (feet)</label>
+      <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="14" aria-describedby="length-hint">
+      <p class="hint" id="length-hint">Example: 14.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Room width (feet)","value":"12","hint":"Example: 12."},"metric":{"label":"Room width (meters)","value":"3.7","hint":"Example: 3.7."}}'>
+      <label for="width">Room width (feet)</label>
+      <input id="width" name="width" data-main type="text" inputmode="decimal" autocomplete="off" value="12" aria-describedby="width-hint">
+      <p class="hint" id="width-hint">Example: 12.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Wall height (feet)","value":"8","hint":"Floor to ceiling. Example: 8."},"metric":{"label":"Wall height (meters)","value":"2.4","hint":"Floor to ceiling. Example: 2.4."}}'>
+      <label for="height">Wall height (feet)</label>
+      <input id="height" name="height" data-main type="text" inputmode="decimal" autocomplete="off" value="8" aria-describedby="height-hint">
+      <p class="hint" id="height-hint">Floor to ceiling. Example: 8.</p>
+    </div><div class="field">
+      <label for="doors">Number of doors</label>
+      <input id="doors" name="doors" type="text" inputmode="decimal" autocomplete="off" value="1" aria-describedby="doors-hint">
+      <p class="hint" id="doors-hint">Each door is counted as 20 sq ft.</p>
+    </div><div class="field">
+      <label for="windows">Number of windows</label>
+      <input id="windows" name="windows" type="text" inputmode="decimal" autocomplete="off" value="2" aria-describedby="windows-hint">
+      <p class="hint" id="windows-hint">Each window is counted as 15 sq ft.</p>
+    </div><div class="field">
+      <label for="coats">Number of coats</label>
+      <input id="coats" name="coats" type="text" inputmode="decimal" autocomplete="off" value="2" aria-describedby="coats-hint">
+      <p class="hint" id="coats-hint">Two coats is common. Example: 2.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Coverage per gallon (sq ft)","value":"350","hint":"Printed on the can. Example: 350."},"metric":{"label":"Coverage per liter (square meters)","value":"8.5","hint":"Printed on the can. Example: 8.5."}}'>
+      <label for="coverage">Coverage per gallon (sq ft)</label>
+      <input id="coverage" name="coverage" data-main type="text" inputmode="decimal" autocomplete="off" value="350" aria-describedby="coverage-hint">
+      <p class="hint" id="coverage-hint">Printed on the can. Example: 350.</p>
+    </div><div class="field">
+      <label for="ceiling">Paint the ceiling too?</label>
+      <select id="ceiling" name="ceiling" aria-describedby="ceiling-hint"><option value="no" selected>No, walls only</option><option value="yes">Yes, add the ceiling</option></select>
+      <p class="hint" id="ceiling-hint">The ceiling is counted as length &times; width.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the amount is calculated</h2>
+<p>The calculator finds the area of the four walls, subtracts doors and windows, multiplies by the number of coats, and divides by how much area one gallon (or liter) of your paint covers.</p>
+<span class="formula">Wall area = 2 &times; (length + width) &times; wall height</span>
+<span class="formula">Paintable area = wall area &minus; (doors &times; 20 sq ft) &minus; (windows &times; 15 sq ft)    (+ ceiling area if chosen)</span>
+<span class="formula">Paint = paintable area &times; coats &divide; coverage of one gallon</span>
+
+<h2>Worked example</h2>
+<p>A room 14 ft by 12 ft with 8 ft walls, 1 door, 2 windows and 2 coats. The paint covers 350 sq ft per gallon, which is an example only. Read the real number on the can.</p>
+<ol><li>Wall area = 2 &times; (14 + 12) &times; 8 = <strong>416 sq ft</strong>.</li><li>Doors and windows = 1 &times; 20 + 2 &times; 15 = <strong>50 sq ft</strong>.</li><li>Paintable area = 416 &minus; 50 = <strong>366 sq ft</strong>.</li><li>2 coats = 366 &times; 2 = <strong>732 sq ft</strong>.</li><li>Paint = 732 &divide; 350 = 2.09 gallons, rounded up to the next quarter gallon: <strong>2.25 gallons</strong>.</li></ol>
+<p>If you also paint the ceiling (14 &times; 12 = 168 sq ft), the paintable area becomes 534 sq ft and the total is <strong>3.25 gallons</strong>.</p>
+
+<h2>Assumptions and limits</h2>
+<ul>
+<li>One rectangular room with flat walls. Each door is counted as 20 sq ft and each window as 15 sq ft. Your real openings may differ.</li>
+<li>Trim, baseboards, crown molding, closets, primer and a second color are not included.</li>
+<li>Rough or porous walls, new drywall and big color changes can need more paint than the can says.</li>
+</ul>
+
+<h2>Before you buy</h2>
+<ul><li>Measure from floor to ceiling, not just the height of the window.</li><li>Buy all the paint for a room at once, or mix the cans together so the color matches.</li><li>Check the can for coverage. Rough or textured walls soak up more paint.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>How much area does a gallon of paint cover?</h3>
+<p>Many interior paints cover about 350 to 400 square feet per gallon on smooth walls, which is roughly 8.5 to 10 square meters per liter. The can shows the real number for your paint.</p>
+<h3>Do I need two coats?</h3>
+<p>Often yes, especially when you change color or paint over a dark color. Some paints cover in one coat on a similar color. Ask at the paint store, and check the can.</p>
+<h3>Does this include trim and baseboards?</h3>
+<p>No. Trim, baseboards and doors are usually painted with a different paint. Measure those separately, or ask the store how much they need.</p>
+<h3>Why are doors and windows removed?</h3>
+<p>They are not painted with wall paint, so taking them out avoids over-buying. The calculator uses 20 sq ft for a door and 15 sq ft for a window. Your real sizes may differ.</p>
+<h3>Should I buy extra paint?</h3>
+<p>A small amount left over is useful for touch-ups. If the calculator says 2.25 gallons, a 2.5 gallon purchase is a sensible round-up. Ask the store about can sizes.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="flooring-tile-calculator.html">Tile and Flooring Calculator</a></li><li><a href="deck-material-calculator.html">Deck Material Calculator</a></li><li><a href="concrete-calculator.html">Concrete Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="paint.js" defer></script>
+</body>
+</html>

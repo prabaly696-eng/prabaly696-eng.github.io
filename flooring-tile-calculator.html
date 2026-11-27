@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tile and Flooring Calculator: Pieces and Boxes</title>
+<meta name="description" content="Estimate how many tiles or planks a floor needs, with grout gap and waste, and how many boxes to buy. Includes the formula and a worked example.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/flooring-tile-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Tile and Flooring Calculator: Pieces and Boxes">
+<meta property="og:description" content="Estimate how many tiles or planks a floor needs, with grout gap and waste, and how many boxes to buy. Includes the formula and a worked example.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/flooring-tile-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Tile and Flooring Calculator","item":"https://prabaly696-eng.github.io/measure-twice/flooring-tile-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html" aria-current="page">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Tile and Flooring Calculator</p>
+<h1>Tile and Flooring Calculator</h1>
+<p class="lede">Estimate how many tiles or planks a floor needs. Enter the room size, the piece size and a waste allowance, and add the pieces per box to see how many boxes to buy.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Room length (feet)","value":"12","hint":"Example: 12."},"metric":{"label":"Room length (meters)","value":"3.6","hint":"Example: 3.6."}}'>
+      <label for="length">Room length (feet)</label>
+      <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="12" aria-describedby="length-hint">
+      <p class="hint" id="length-hint">Example: 12.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Room width (feet)","value":"10","hint":"Example: 10."},"metric":{"label":"Room width (meters)","value":"3","hint":"Example: 3."}}'>
+      <label for="width">Room width (feet)</label>
+      <input id="width" name="width" data-main type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="width-hint">
+      <p class="hint" id="width-hint">Example: 10.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Tile or plank length (inches)","value":"12","hint":"Example: 12."},"metric":{"label":"Tile or plank length (centimeters)","value":"30","hint":"Example: 30."}}'>
+      <label for="tileLength">Tile or plank length (inches)</label>
+      <input id="tileLength" name="tileLength" data-main type="text" inputmode="decimal" autocomplete="off" value="12" aria-describedby="tileLength-hint">
+      <p class="hint" id="tileLength-hint">Example: 12.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Tile or plank width (inches)","value":"12","hint":"Example: 12."},"metric":{"label":"Tile or plank width (centimeters)","value":"30","hint":"Example: 30."}}'>
+      <label for="tileWidth">Tile or plank width (inches)</label>
+      <input id="tileWidth" name="tileWidth" data-main type="text" inputmode="decimal" autocomplete="off" value="12" aria-describedby="tileWidth-hint">
+      <p class="hint" id="tileWidth-hint">Example: 12.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Gap or grout line (inches)","value":"0.125","hint":"Use 0 for planks. Example: 0.125."},"metric":{"label":"Gap or grout line (millimeters)","value":"3","hint":"Use 0 for planks. Example: 3."}}'>
+      <label for="gap">Gap or grout line (inches)</label>
+      <input id="gap" name="gap" data-main type="text" inputmode="decimal" autocomplete="off" value="0.125" aria-describedby="gap-hint">
+      <p class="hint" id="gap-hint">Use 0 for planks. Example: 0.125.</p>
+    </div><div class="field">
+      <label for="waste">Waste allowance (percent, optional)</label>
+      <input id="waste" name="waste" type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="waste-hint">
+      <p class="hint" id="waste-hint">Leave blank for 0. Many installers add about 10%.</p>
+    </div><div class="field">
+      <label for="perBox">Pieces per box (optional)</label>
+      <input id="perBox" name="perBox" type="text" inputmode="decimal" autocomplete="off" value="" aria-describedby="perBox-hint">
+      <p class="hint" id="perBox-hint">Printed on the box. Example: 10.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the count works</h2>
+<p>The calculator divides the floor area by the area one piece takes up, including its grout line or gap, then adds your waste allowance. The result is rounded up to whole pieces. If you enter pieces per box, it also rounds up to whole boxes.</p>
+<span class="formula">Floor area = room length &times; room width</span>
+<span class="formula">One piece = (tile length + gap) &times; (tile width + gap)</span>
+<span class="formula">Pieces to buy = round up (floor area &divide; one piece &times; (1 + waste &divide; 100))</span>
+<span class="formula">Boxes = round up (pieces to buy &divide; pieces per box)</span>
+
+<h2>Worked example</h2>
+<p>A 12 ft by 10 ft room with 12 inch by 12 inch tiles, a 0.125 inch grout line, 10% waste and 10 tiles per box.</p>
+<ol><li>Floor area = 12 &times; 10 = <strong>120 sq ft</strong>.</li><li>One piece = (12 + 0.125) &times; (12 + 0.125) &divide; 144 = <strong>1.0209 sq ft</strong>.</li><li>Pieces before waste = 120 &divide; 1.0209 = <strong>117.5</strong>.</li><li>With 10% waste = 117.5 &times; 1.10 = 129.3, rounded up to <strong>130 pieces</strong>.</li><li>Boxes = round up (130 &divide; 10) = <strong>13 boxes</strong>.</li></ol>
+
+<h2>Assumptions and limits</h2>
+<ul>
+<li>The room is a simple rectangle. For an L-shaped room, calculate each rectangle and add the results.</li>
+<li>For plank flooring, enter the plank length and width and a gap of 0.</li>
+<li>This is an area estimate. It does not plan the layout, so cuts at the walls are covered by the waste allowance.</li>
+<li>Diagonal patterns, large tiles, and rooms with many corners usually need more waste.</li>
+</ul>
+
+<h2>Before you buy</h2>
+<ul><li>Order all pieces from one batch. Shades can differ between batches.</li><li>Keep a few spare pieces for future repairs.</li><li>Check the box for the area it covers. That number can be easier to use than counting pieces.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>How much waste should I add for tile or flooring?</h3>
+<p>Many installers suggest about 10% for a simple straight layout and 15% or more for diagonal patterns or rooms with many corners. Your supplier or installer can tell you what is usual for your product.</p>
+<h3>How do I enter the grout line?</h3>
+<p>Enter the width of the grout line or gap between pieces. For tiles it is often around 1/8 inch (3 mm), but follow your tile maker\u2019s advice. Use 0 for planks that fit tightly together.</p>
+<h3>Can I use this for planks and laminate?</h3>
+<p>Yes. Enter the plank length and width, and set the gap to 0. Then add your waste allowance.</p>
+<h3>Why compare the area with the box instead of the pieces?</h3>
+<p>Some flooring is sold by the box with the covered area printed on it. Compare the floor area with waste shown in the result with the area on the box.</p>
+<h3>Should I keep spare tiles?</h3>
+<p>It is a good idea to keep a few spare pieces from the same batch for future repairs, because later batches can differ slightly in shade.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="paint-calculator.html">Paint Calculator</a></li><li><a href="concrete-calculator.html">Concrete Calculator</a></li><li><a href="deck-material-calculator.html">Deck Material Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="tile-flooring.js" defer></script>
+</body>
+</html>

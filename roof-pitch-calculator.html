@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roof Pitch Calculator: Rise, Run, Slope and Angle</title>
+<meta name="description" content="Enter roof rise and run to get pitch (x:12), slope percent and angle in degrees. See the formula, a worked example and a chart of common pitches.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/roof-pitch-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Roof Pitch Calculator: Rise, Run, Slope and Angle">
+<meta property="og:description" content="Enter roof rise and run to get pitch (x:12), slope percent and angle in degrees. See the formula, a worked example and a chart of common pitches.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/roof-pitch-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Roof Pitch Calculator","item":"https://prabaly696-eng.github.io/measure-twice/roof-pitch-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html" aria-current="page">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Roof Pitch Calculator</p>
+<h1>Roof Pitch Calculator</h1>
+<p class="lede">Enter the rise and run of a roof to see its pitch, slope percentage and angle. Everything is calculated in your browser.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field">
+      <label for="rise">Rise</label>
+      <input id="rise" name="rise" type="text" inputmode="decimal" autocomplete="off" value="6" aria-describedby="rise-hint">
+      <p class="hint" id="rise-hint">The vertical height. Use the same unit as the run. Example: 6.</p>
+    </div><div class="field">
+      <label for="run">Run</label>
+      <input id="run" name="run" type="text" inputmode="decimal" autocomplete="off" value="12" aria-describedby="run-hint">
+      <p class="hint" id="run-hint">The horizontal distance. Example: 12.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How roof pitch is calculated</h2>
+<p>Pitch compares how far a roof rises with how far it runs sideways. Builders in the United States usually write it as rise over 12, so a 6:12 roof rises 6 units for every 12 units of run. This calculator uses these formulas:</p>
+<span class="formula">Pitch (per 12) = rise &divide; run &times; 12</span>
+<span class="formula">Slope (%) = rise &divide; run &times; 100</span>
+<span class="formula">Angle = arctan(rise &divide; run)</span>
+<span class="formula">Surface multiplier = &radic;(1 + (rise &divide; run)&sup2;)</span>
+<p>Rise and run must use the same unit. Inches, feet or any other unit works, because only the ratio matters.</p>
+
+<h2>Worked example</h2>
+<p>A roof section rises 6 inches over a run of 12 inches.</p>
+<ol><li>Pitch = 6 &divide; 12 &times; 12 = <strong>6:12</strong></li><li>Slope = 6 &divide; 12 &times; 100 = <strong>50%</strong></li><li>Angle = arctan(0.5) = <strong>26.57°</strong></li><li>Surface multiplier = &radic;(1 + 0.5&sup2;) = &radic;1.25 = <strong>1.118</strong></li></ol>
+<p>Pitch is not always a whole number. If a roof rises 4 feet over a 10 foot run, the pitch is 4 &divide; 10 &times; 12 = <strong>4.8:12</strong>, which is a slope of 40% and an angle of 21.8°.</p>
+
+<h2>Common roof pitches</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Pitch</th><th>Slope</th><th>Angle</th></tr></thead>
+<tbody><tr><td>2:12</td><td>16.7%</td><td>9.46°</td></tr><tr><td>3:12</td><td>25%</td><td>14.04°</td></tr><tr><td>4:12</td><td>33.3%</td><td>18.43°</td></tr><tr><td>5:12</td><td>41.7%</td><td>22.62°</td></tr><tr><td>6:12</td><td>50%</td><td>26.57°</td></tr><tr><td>7:12</td><td>58.3%</td><td>30.26°</td></tr><tr><td>8:12</td><td>66.7%</td><td>33.69°</td></tr><tr><td>9:12</td><td>75%</td><td>36.87°</td></tr><tr><td>10:12</td><td>83.3%</td><td>39.81°</td></tr><tr><td>12:12</td><td>100%</td><td>45°</td></tr></tbody>
+</table></div>
+
+<h2>What the surface multiplier is for</h2>
+<p>A sloped roof has more surface than the flat area under it. Multiply the flat area of a roof section by the surface multiplier to estimate the sloped area. The result does not include overhangs, valleys, dormers or waste, so treat it as a starting point and ask your roofing supplier how much to order.</p>
+
+<h2>Before you buy</h2>
+<ul><li>Measure at the same spot twice and use the average.</li><li>On a hip or complex roof, measure each roof plane on its own.</li><li>Pitch decides which roofing materials and underlayment are allowed. Read the manufacturer’s instructions before you buy.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>What does a 6:12 roof pitch mean?</h3>
+<p>A 6:12 pitch means the roof rises 6 inches for every 12 inches it runs horizontally. That is a slope of 50% and an angle of about 26.57 degrees.</p>
+<h3>How do I measure rise and run?</h3>
+<p>From the attic, hold a level horizontally against the underside of a rafter. Mark 12 inches along the level, then measure straight up or down from that mark to the rafter. That measurement is the rise for a 12 inch run. Do not walk on a steep or wet roof without proper safety equipment.</p>
+<h3>What is the run on a gable roof?</h3>
+<p>On a simple, symmetrical gable roof, the run is half the width of the building, measured from the outside wall to a point directly below the ridge.</p>
+<h3>How do I convert pitch to degrees?</h3>
+<p>Divide the rise by 12, then take the arctangent of the result. Most phone calculators have an arctan or tan<sup>-1</sup> button. For 6:12, arctan(0.5) is about 26.57 degrees.</p>
+<h3>What is the minimum pitch for asphalt shingles?</h3>
+<p>Shingle makers set their own minimum slopes. Many standard asphalt shingles are meant for slopes of 4:12 or more, and some allow lower slopes with special underlayment. Check the installation instructions for the product you plan to use and your local building code.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="deck-material-calculator.html">Deck Material Calculator</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall Calculator</a></li><li><a href="fence-post-calculator.html">Fence Post Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="roof-pitch.js" defer></script>
+</body>
+</html>

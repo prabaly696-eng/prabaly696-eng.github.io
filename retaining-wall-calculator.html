@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retaining Wall Calculator: Estimate Blocks Needed</title>
+<meta name="description" content="Estimate how many retaining wall blocks you need from wall length, height and block size, with waste. A basic material estimate, not engineering advice.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/retaining-wall-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Retaining Wall Calculator: Estimate Blocks Needed">
+<meta property="og:description" content="Estimate how many retaining wall blocks you need from wall length, height and block size, with waste. A basic material estimate, not engineering advice.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/retaining-wall-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Retaining Wall Calculator","item":"https://prabaly696-eng.github.io/measure-twice/retaining-wall-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html" aria-current="page">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Retaining Wall Calculator</p>
+<h1>Retaining Wall Calculator</h1>
+<p class="lede">Estimate the face area of a block wall and how many blocks it needs. This is a material estimate only, not a structural design.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Wall length (feet)","value":"20","hint":"Example: 20."},"metric":{"label":"Wall length (meters)","value":"6","hint":"Example: 6."}}'>
+      <label for="length">Wall length (feet)</label>
+      <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="20" aria-describedby="length-hint">
+      <p class="hint" id="length-hint">Example: 20.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Wall height (feet)","value":"3","hint":"Include any buried first course. Example: 3."},"metric":{"label":"Wall height (meters)","value":"1","hint":"Include any buried first course. Example: 1."}}'>
+      <label for="height">Wall height (feet)</label>
+      <input id="height" name="height" data-main type="text" inputmode="decimal" autocomplete="off" value="3" aria-describedby="height-hint">
+      <p class="hint" id="height-hint">Include any buried first course. Example: 3.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Block length (inches)","value":"16","hint":"The visible face length of one block. Example: 16."},"metric":{"label":"Block length (centimeters)","value":"40","hint":"The visible face length of one block. Example: 40."}}'>
+      <label for="blockLength">Block length (inches)</label>
+      <input id="blockLength" name="blockLength" data-main type="text" inputmode="decimal" autocomplete="off" value="16" aria-describedby="blockLength-hint">
+      <p class="hint" id="blockLength-hint">The visible face length of one block. Example: 16.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Block height (inches)","value":"8","hint":"The visible face height of one block. Example: 8."},"metric":{"label":"Block height (centimeters)","value":"20","hint":"The visible face height of one block. Example: 20."}}'>
+      <label for="blockHeight">Block height (inches)</label>
+      <input id="blockHeight" name="blockHeight" data-main type="text" inputmode="decimal" autocomplete="off" value="8" aria-describedby="blockHeight-hint">
+      <p class="hint" id="blockHeight-hint">The visible face height of one block. Example: 8.</p>
+    </div><div class="field">
+      <label for="waste">Waste allowance (percent, optional)</label>
+      <input id="waste" name="waste" type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="waste-hint">
+      <p class="hint" id="waste-hint">Leave blank for 0. Cut and broken blocks add up.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the estimate works</h2>
+<p>The calculator divides the face area of the wall by the face area of one block, then adds your waste allowance. It also shows how many courses (rows) and how many blocks per course, each rounded up.</p>
+<span class="formula">Wall face area = length &times; height</span>
+<span class="formula">Block face area = block length &times; block height &divide; 144 (square feet, with block sizes in inches)</span>
+<span class="formula">Blocks to buy = round up (wall area &divide; block area &times; (1 + waste &divide; 100))</span>
+<span class="formula">Courses = round up (wall height in inches &divide; block height)</span>
+
+<h2>Worked example</h2>
+<p>A wall 20 ft long and 3 ft high, built from blocks 16 inches long and 8 inches high, with 10% waste.</p>
+<ol><li>Wall face area = 20 &times; 3 = <strong>60 sq ft</strong>.</li><li>Block face area = 16 &times; 8 &divide; 144 = <strong>0.889 sq ft</strong>.</li><li>Blocks before waste = 60 &divide; 0.889 = <strong>67.5</strong>.</li><li>With 10% waste = 67.5 &times; 1.10 = 74.25, rounded up to <strong>75 blocks</strong>.</li><li>Courses = round up (36 &divide; 8) = <strong>5</strong>. Blocks per course = round up (240 &divide; 16) = <strong>15</strong>.</li></ol>
+
+<h2>What this estimate is, and is not</h2>
+<ul>
+<li>It is a basic material estimate. It is <strong>not</strong> an engineering or structural safety assessment.</li>
+<li>It assumes a straight wall with no corners, curves, steps or stepped-back courses.</li>
+<li>It does not include cap blocks, base gravel, drainage pipe, backfill, geogrid or other reinforcement.</li>
+<li>Walls can fail if they are not designed for the soil, water and loads behind them. Ask your local building department and, when needed, a qualified engineer.</li>
+</ul>
+
+<h2>Before you buy</h2>
+<ul><li>Measure along the ground on a slope, not in a straight line through the air.</li><li>Order a few extra blocks for cuts at the ends and corners.</li><li>Ask your block supplier for the installation guide. It covers base depth, drainage and when you need an engineer.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>Where do I find the block size?</h3>
+<p>Look at the product label or the manufacturer’s data sheet. Use the face dimensions of the block as it sits in the wall. Nominal sizes can differ slightly from actual sizes.</p>
+<h3>Should I include a buried first course?</h3>
+<p>Many block makers tell you to bury the first course below grade. If yours does, include the buried height in the wall height so the block count covers it. Follow your block maker’s instructions.</p>
+<h3>Do I need a permit or an engineer?</h3>
+<p>Rules vary by place and wall height. Many areas require a permit or an engineered design above a certain height, often around 4 feet, and walls that hold back a slope, support a driveway or building, or sit near a property line can need approval at any height. Ask your local building department before you build.</p>
+<h3>Does this include cap blocks, gravel and drainage?</h3>
+<p>No. Cap blocks, base material, drainage pipe and backfill are separate items. Use the gravel calculator on this site to estimate base or backfill volume.</p>
+<h3>Why are there two different block counts?</h3>
+<p>The main result divides area by block size, which is the best estimate of the total. The courses and blocks-per-course figures are each rounded up, which shows the grid you will build and why you will need some cut blocks.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="gravel-calculator.html">Gravel Calculator</a></li><li><a href="concrete-calculator.html">Concrete Calculator</a></li><li><a href="fence-post-calculator.html">Fence Post Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="retaining-wall.js" defer></script>
+</body>
+</html>

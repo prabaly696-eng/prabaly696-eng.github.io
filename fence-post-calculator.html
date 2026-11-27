@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fence Post Calculator: How Many Posts You Need</title>
+<meta name="description" content="Estimate fence posts from fence length and post spacing, for an open run or a closed loop. Includes the formula, a worked example and what is not counted.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/fence-post-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Fence Post Calculator: How Many Posts You Need">
+<meta property="og:description" content="Estimate fence posts from fence length and post spacing, for an open run or a closed loop. Includes the formula, a worked example and what is not counted.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/fence-post-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Fence Post Calculator","item":"https://prabaly696-eng.github.io/measure-twice/fence-post-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html" aria-current="page">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Fence Post Calculator</p>
+<h1>Fence Post Calculator</h1>
+<p class="lede">Estimate how many fence posts you need from the length of the fence and the maximum spacing between posts.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Total fence length (feet)","value":"100","hint":"For a closed fence, enter the full distance around. Example: 100."},"metric":{"label":"Total fence length (meters)","value":"30","hint":"For a closed fence, enter the full distance around. Example: 30."}}'>
+      <label for="length">Total fence length (feet)</label>
+      <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="100" aria-describedby="length-hint">
+      <p class="hint" id="length-hint">For a closed fence, enter the full distance around. Example: 100.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Maximum post spacing (feet)","value":"8","hint":"Use the spacing your panels or rails call for. Example: 8."},"metric":{"label":"Maximum post spacing (meters)","value":"2.4","hint":"Use the spacing your panels or rails call for. Example: 2.4."}}'>
+      <label for="spacing">Maximum post spacing (feet)</label>
+      <input id="spacing" name="spacing" data-main type="text" inputmode="decimal" autocomplete="off" value="8" aria-describedby="spacing-hint">
+      <p class="hint" id="spacing-hint">Use the spacing your panels or rails call for. Example: 8.</p>
+    </div><div class="field">
+      <label for="layout">Fence layout</label>
+      <select id="layout" name="layout" aria-describedby="layout-hint"><option value="run" selected>Open run (a post at each end)</option><option value="loop">Closed loop (returns to the start)</option></select>
+      <p class="hint" id="layout-hint">An open run needs one more post than it has sections.</p>
+    </div><div class="field">
+      <label for="spare">Spare post allowance (percent, optional)</label>
+      <input id="spare" name="spare" type="text" inputmode="decimal" autocomplete="off" value="" aria-describedby="spare-hint">
+      <p class="hint" id="spare-hint">Leave blank for 0. Example: 5.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the post count works</h2>
+<p>Posts hold the fence up at each end of every section. A straight run with N sections needs N + 1 posts, because both ends of the fence need a post. A closed fence that returns to its starting point needs only N posts, because the last section meets the first post.</p>
+<span class="formula">Sections = round up (fence length &divide; maximum post spacing)</span>
+<span class="formula">Open run: posts = sections + 1</span>
+<span class="formula">Closed loop: posts = sections</span>
+<span class="formula">Posts to buy = round up (posts &times; (1 + spare allowance &divide; 100))</span>
+<span class="formula">Even spacing = fence length &divide; sections</span>
+<p>The spacing you enter is treated as the <em>maximum</em> distance between posts. Rounding the number of sections up keeps every section at or under that distance.</p>
+
+<h2>Worked example</h2>
+<p>A straight fence 100 ft long with posts no more than 8 ft apart.</p>
+<ol><li>Sections = round up (100 &divide; 8) = round up 12.5 = <strong>13</strong>.</li><li>Open run: posts = 13 + 1 = <strong>14 posts</strong>.</li><li>Even spacing = 100 &divide; 13 = <strong>7.69 ft</strong>, which is under the 8 ft limit.</li><li>With a 5% spare allowance: 14 &times; 1.05 = 14.7, rounded up to <strong>15 posts</strong>.</li></ol>
+<p>If the same 100 ft of fence formed a closed loop, it would need 13 sections and <strong>13 posts</strong>.</p>
+
+<h2>What is not counted</h2>
+<ul>
+<li>Rails, pickets, panels, gates, gate hardware, brackets, concrete and fasteners. This calculator needs more details to estimate those, so it does not guess.</li>
+<li>Extra posts for corners, gates, changes of direction, steep slopes or wind loads. Count these separately.</li>
+<li>Local rules. Fence height, setbacks from property lines, materials and permits vary by city, county and neighborhood association.</li>
+</ul>
+
+<h2>Before you buy</h2>
+<ul><li>Mark the post positions with stakes and string before you buy. Spacing often changes at gates and corners.</li><li>Check property lines and any neighborhood rules before you dig.</li><li>Concrete or gravel for the post holes is a separate item. Ask your supplier how much each hole needs.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>Why is there one more post than sections?</h3>
+<p>Every section needs a post at both ends. In a straight run, the posts between sections are shared, but the two end posts are not, so the total is sections plus one.</p>
+<h3>What post spacing should I use?</h3>
+<p>It depends on the fence style and the length of the panels or rails. Many wood fences use posts about 6 to 8 feet apart. Use the spacing your panels, rails or manufacturer call for.</p>
+<h3>Does this count corner and gate posts?</h3>
+<p>No. Corners, gates and changes of direction often need extra or heavier posts. Count them separately and follow the instructions for your fence.</p>
+<h3>What if my fence has several straight sections?</h3>
+<p>Run the calculator once for each straight section as an open run, and add the results. Posts shared at corners would then be counted twice, so subtract one for each shared corner.</p>
+<h3>Do I need to check for utilities before digging?</h3>
+<p>Yes. In the United States, call 811 a few days before you dig so underground utility lines can be marked for free.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="deck-material-calculator.html">Deck Material Calculator</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall Calculator</a></li><li><a href="gravel-calculator.html">Gravel Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="fence.js" defer></script>
+</body>
+</html>

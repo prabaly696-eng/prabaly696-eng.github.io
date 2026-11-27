@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gravel Calculator: Cubic Yards, Tons and Cost</title>
+<meta name="description" content="Calculate gravel in cubic yards and cubic feet from length, width and depth. Add a price per cubic yard for cost. Includes a coverage chart and formula.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/gravel-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Gravel Calculator: Cubic Yards, Tons and Cost">
+<meta property="og:description" content="Calculate gravel in cubic yards and cubic feet from length, width and depth. Add a price per cubic yard for cost. Includes a coverage chart and formula.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/gravel-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Gravel Calculator","item":"https://prabaly696-eng.github.io/measure-twice/gravel-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html" aria-current="page">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Gravel Calculator</p>
+<h1>Gravel Calculator</h1>
+<p class="lede">Find how much gravel an area needs in cubic yards or cubic meters, with a rough weight in tons or tonnes. Switch between US and Metric units, and add a price for a cost estimate.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Length","value":"20","hint":"Example: 20.","units":[["ft","feet"],["in","inches"]],"unit":"ft"},"metric":{"label":"Length","value":"6","hint":"Example: 6.","units":[["m","meters"],["cm","centimeters"]],"unit":"m"}}'>
+      <label for="length">Length</label>
+      <div class="input-row">
+        <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="20" aria-describedby="length-hint">
+        <select id="lengthUnit" name="lengthUnit" data-unit aria-label="Unit for length"><option value="ft" selected>feet</option><option value="in">inches</option></select>
+      </div>
+      <p class="hint" id="length-hint">Example: 20.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Width","value":"10","hint":"Example: 10.","units":[["ft","feet"],["in","inches"]],"unit":"ft"},"metric":{"label":"Width","value":"3","hint":"Example: 3.","units":[["m","meters"],["cm","centimeters"]],"unit":"m"}}'>
+      <label for="width">Width</label>
+      <div class="input-row">
+        <input id="width" name="width" data-main type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="width-hint">
+        <select id="widthUnit" name="widthUnit" data-unit aria-label="Unit for width"><option value="ft" selected>feet</option><option value="in">inches</option></select>
+      </div>
+      <p class="hint" id="width-hint">Example: 10.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Depth","value":"3","hint":"How deep the gravel will be. Example: 3.","units":[["in","inches"],["ft","feet"]],"unit":"in"},"metric":{"label":"Depth","value":"8","hint":"How deep the gravel will be. Example: 8.","units":[["cm","centimeters"],["m","meters"]],"unit":"cm"}}'>
+      <label for="depth">Depth</label>
+      <div class="input-row">
+        <input id="depth" name="depth" data-main type="text" inputmode="decimal" autocomplete="off" value="3" aria-describedby="depth-hint">
+        <select id="depthUnit" name="depthUnit" data-unit aria-label="Unit for depth"><option value="in" selected>inches</option><option value="ft">feet</option></select>
+      </div>
+      <p class="hint" id="depth-hint">How deep the gravel will be. Example: 3.</p>
+    </div><div class="field">
+      <label for="material">Material (for weight)</label>
+      <select id="material" name="material" aria-describedby="material-hint"><option value="stone" selected>Crushed stone or gravel</option><option value="pea">Pea gravel</option><option value="sand">Sand</option><option value="base">Road base (dense graded)</option></select>
+      <p class="hint" id="material-hint">Used only for the rough weight. Weights vary, so check with your supplier.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Weight per cubic yard (tons, optional)","value":"","hint":"If your supplier gives a number, enter it here. Example: 1.4."},"metric":{"label":"Weight per cubic meter (tonnes, optional)","value":"","hint":"If your supplier gives a number, enter it here. Example: 1.7."}}'>
+      <label for="density">Weight per cubic yard (tons, optional)</label>
+      <input id="density" name="density" data-main type="text" inputmode="decimal" autocomplete="off" value="" aria-describedby="density-hint">
+      <p class="hint" id="density-hint">If your supplier gives a number, enter it here. Example: 1.4.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Price per cubic yard (optional)","value":"","hint":"In dollars, for a cost estimate. Example: 45."},"metric":{"label":"Price per cubic meter (optional)","value":"","hint":"In your own currency, for a cost estimate. Example: 40."}}'>
+      <label for="price">Price per cubic yard (optional)</label>
+      <input id="price" name="price" data-main type="text" inputmode="decimal" autocomplete="off" value="" aria-describedby="price-hint">
+      <p class="hint" id="price-hint">In dollars, for a cost estimate. Example: 45.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the volume is calculated</h2>
+<p>Gravel is sold by the cubic yard, but you measure a space in feet and inches. The calculator converts everything to feet, finds the volume in cubic feet, then divides by 27 because one cubic yard holds 27 cubic feet (3 ft &times; 3 ft &times; 3 ft).</p>
+<span class="formula">Area (sq ft) = length (ft) &times; width (ft)</span>
+<span class="formula">Volume (cu ft) = area &times; depth (ft)    where depth in feet = inches &divide; 12</span>
+<span class="formula">Volume (cu yd) = cubic feet &divide; 27</span>
+<span class="formula">Cost = cubic yards &times; price per cubic yard</span>
+
+<h2>Worked example</h2>
+<p>A path 20 ft long and 10 ft wide, covered with 3 inches of gravel. The price of $45 per cubic yard is an example only.</p>
+<ol><li>Area = 20 &times; 10 = <strong>200 sq ft</strong>.</li><li>Depth = 3 &divide; 12 = <strong>0.25 ft</strong>.</li><li>Volume = 200 &times; 0.25 = <strong>50 cubic ft</strong>.</li><li>Cubic yards = 50 &divide; 27 = <strong>1.85 cubic yards</strong>.</li><li>Cost = 1.85 &times; $45 = <strong>$83.33</strong> (the calculator uses the unrounded volume).</li></ol>
+
+<h2>How much area does one cubic yard cover?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Depth</th><th>Area covered by 1 cubic yard</th></tr></thead>
+<tbody><tr><td>1 in</td><td>324 sq ft</td></tr><tr><td>2 in</td><td>162 sq ft</td></tr><tr><td>3 in</td><td>108 sq ft</td></tr><tr><td>4 in</td><td>81 sq ft</td></tr><tr><td>6 in</td><td>54 sq ft</td></tr></tbody>
+</table></div>
+<p>These figures come from 27 &divide; depth in feet. Real coverage is lower if the material settles or the ground is uneven. In metric, one cubic meter covers 10 square meters at 10 cm deep.</p>
+
+<h2>How much does gravel weigh?</h2>
+<p>Many suppliers sell gravel by weight, so the calculator also shows a rough weight. The ranges below are commonly quoted figures, not guarantees. Pick the closest material, or enter the number your supplier gives you and it will replace the range.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Material</th><th>Typical weight per cubic yard</th></tr></thead>
+<tbody><tr><td>Crushed stone or gravel</td><td>1.3 to 1.5 tons</td></tr><tr><td>Pea gravel</td><td>1.35 to 1.5 tons</td></tr><tr><td>Sand</td><td>1.25 to 1.6 tons</td></tr><tr><td>Road base (dense graded)</td><td>1.4 to 1.6 tons</td></tr></tbody>
+</table></div>
+<p>Tons here are US short tons (2,000 pounds). In metric mode the calculator shows metric tonnes (1,000 kg).</p>
+
+<h2>Before you buy</h2>
+<ul><li>Measure the depth after the ground is prepared. Gravel on uneven ground takes more.</li><li>Ask whether the supplier sells by volume or by weight, and compare prices in the same unit.</li><li>Weed barrier fabric is a separate item. Its area is the same as the area you entered.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>How many tons are in a cubic yard of gravel?</h3>
+<p>It depends on the stone and how wet it is. Crushed stone and gravel often weigh roughly 1.3 to 1.5 tons per cubic yard, and sand and road base can be a little higher. The calculator uses rough ranges, so ask your supplier for the figure for your material and enter it for a better estimate.</p>
+<h3>How deep should gravel be?</h3>
+<p>It depends on the job. A decorative path needs less than a driveway or a base under pavers. Follow the plan for your project or ask your supplier.</p>
+<h3>Should I order extra?</h3>
+<p>Many people add about 5% to 10% for settling, uneven ground and spillage. The calculator shows the exact volume, so add your own margin.</p>
+<h3>How do I measure an irregular area?</h3>
+<p>Split it into rectangles, calculate each one, and add the cubic yards together. A little extra covers the gaps and rounded edges.</p>
+<h3>Can I enter feet and inches mixed together?</h3>
+<p>Enter a single number with one unit. For 5 feet 6 inches, enter 5.5 feet or 66 inches.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="mulch-calculator.html">Mulch Calculator</a></li><li><a href="concrete-calculator.html">Concrete Calculator</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="gravel.js" defer></script>
+</body>
+</html>

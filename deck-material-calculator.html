@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deck Material Calculator: Estimate Decking Boards</title>
+<meta name="description" content="Estimate how many decking boards you need from deck size, board width, gap and board length. Includes the formula, a worked example and assumptions.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/deck-material-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Deck Material Calculator: Estimate Decking Boards">
+<meta property="og:description" content="Estimate how many decking boards you need from deck size, board width, gap and board length. Includes the formula, a worked example and assumptions.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/deck-material-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Deck Material Calculator","item":"https://prabaly696-eng.github.io/measure-twice/deck-material-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html" aria-current="page">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Deck Material Calculator</p>
+<h1>Deck Material Calculator</h1>
+<p class="lede">Estimate how many decking boards a rectangular deck needs. Enter the deck size and the boards you plan to use.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Deck length (feet)","value":"16","hint":"Example: 16."},"metric":{"label":"Deck length (meters)","value":"5","hint":"Example: 5."}}'>
+      <label for="length">Deck length (feet)</label>
+      <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="16" aria-describedby="length-hint">
+      <p class="hint" id="length-hint">Example: 16.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Deck width (feet)","value":"12","hint":"Example: 12."},"metric":{"label":"Deck width (meters)","value":"4","hint":"Example: 4."}}'>
+      <label for="width">Deck width (feet)</label>
+      <input id="width" name="width" data-main type="text" inputmode="decimal" autocomplete="off" value="12" aria-describedby="width-hint">
+      <p class="hint" id="width-hint">Example: 12.</p>
+    </div><div class="field">
+      <label for="direction">Boards run along the</label>
+      <select id="direction" name="direction" aria-describedby="direction-hint"><option value="length" selected>Length (long side)</option><option value="width">Width (short side)</option></select>
+      <p class="hint" id="direction-hint">Boards usually run across the joists. Check your plan.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Board width (inches)","value":"5.5","hint":"Actual width. A 5/4&amp;times;6 or 2&amp;times;6 board is about 5.5."},"metric":{"label":"Board width (millimeters)","value":"140","hint":"Actual width of the board. Example: 140."}}'>
+      <label for="boardWidth">Board width (inches)</label>
+      <input id="boardWidth" name="boardWidth" data-main type="text" inputmode="decimal" autocomplete="off" value="5.5" aria-describedby="boardWidth-hint">
+      <p class="hint" id="boardWidth-hint">Actual width. A 5/4&times;6 or 2&times;6 board is about 5.5.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Gap between boards (inches)","value":"0.25","hint":"Follow your decking maker’s advice. Example: 0.25."},"metric":{"label":"Gap between boards (millimeters)","value":"6","hint":"Follow your decking maker’s advice. Example: 6."}}'>
+      <label for="gap">Gap between boards (inches)</label>
+      <input id="gap" name="gap" data-main type="text" inputmode="decimal" autocomplete="off" value="0.25" aria-describedby="gap-hint">
+      <p class="hint" id="gap-hint">Follow your decking maker’s advice. Example: 0.25.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Board length","value":"12","options":[[8,"8 feet"],[10,"10 feet"],[12,"12 feet"],[16,"16 feet"],[20,"20 feet"]],"hint":"The length of the boards you plan to buy."},"metric":{"label":"Board length","value":"3.6","options":[[2.4,"2.4 meters"],[3,"3.0 meters"],[3.6,"3.6 meters"],[4.2,"4.2 meters"],[4.8,"4.8 meters"]],"hint":"The length of the boards you plan to buy."}}'>
+      <label for="boardLength">Board length</label>
+      <select id="boardLength" name="boardLength" data-main aria-describedby="boardLength-hint"><option value="8">8 feet</option><option value="10">10 feet</option><option value="12" selected>12 feet</option><option value="16">16 feet</option><option value="20">20 feet</option></select>
+      <p class="hint" id="boardLength-hint">The length of the boards you plan to buy.</p>
+    </div><div class="field">
+      <label for="waste">Waste allowance (percent, optional)</label>
+      <input id="waste" name="waste" type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="waste-hint">
+      <p class="hint" id="waste-hint">Leave blank for 0. Many installers add about 10% for straight layouts.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the estimate works</h2>
+<p>Deck boards are laid in rows. The calculator first finds how many rows fit across the deck, then how many boards each row needs, then adds your waste allowance. Every result is rounded up to whole boards.</p>
+<span class="formula">Rows = round up ((distance across the boards in inches + gap) &divide; (board width + gap))</span>
+<span class="formula">Boards per row = round up (row length &divide; board length)</span>
+<span class="formula">Boards to buy = round up (rows &times; boards per row &times; (1 + waste &divide; 100))</span>
+
+<h2>Worked example</h2>
+<p>A 16 ft by 12 ft deck. The boards are 5.5 inches wide with a 0.25 inch gap, they are 12 ft long and they run along the 16 ft side. Waste allowance is 10%.</p>
+<ol><li>The rows must cover the 12 ft side, which is 144 inches.</li><li>Rows = round up (144 + 0.25) &divide; (5.5 + 0.25) = round up 25.09 = <strong>26 rows</strong>.</li><li>Each row is 16 ft long. Boards per row = round up (16 &divide; 12) = <strong>2 boards</strong>.</li><li>Boards before waste = 26 &times; 2 = <strong>52</strong>.</li><li>With 10% waste = 52 &times; 1.10 = 57.2, rounded up to <strong>58 boards</strong>.</li></ol>
+<p>With 16 ft boards, each row needs only 1 board, so the total is 26 rows &times; 1 = 26 boards, or <strong>29 boards</strong> with waste. Board length changes the count a lot, so compare the lengths your supplier sells.</p>
+
+<h2>Assumptions and limits</h2>
+<ul>
+<li>The deck is a simple rectangle, and every board runs in a straight line in the direction you choose.</li>
+<li>Each row is cut from whole boards. Offcuts are not reused, except through the waste allowance you enter.</li>
+<li>Board width means the actual width, not the nominal size. A 5/4&times;6 or 2&times;6 decking board is about 5.5 inches wide.</li>
+<li>This counts surface boards only. It does not include joists, beams, posts, footings, fasteners, railings, stairs or fascia.</li>
+<li>It does not check whether the deck is safe or meets building code. Ask your local building department about permits and structural requirements.</li>
+<li>Diagonal layouts, picture-frame borders and curved decks use more material than this calculator assumes.</li>
+</ul>
+
+<h2>Before you buy</h2>
+<ul><li>Buy all boards in one order if you can. Color can differ between production batches.</li><li>Ask your supplier which board lengths they stock. Longer boards can mean fewer joints.</li><li>Maximum joist spacing depends on the decking product. Check the installation guide.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>What width should I enter for a decking board?</h3>
+<p>Enter the actual width, not the nominal size. A 5/4&times;6 or 2&times;6 board is about 5.5 inches wide, and a 2&times;4 is about 3.5 inches wide. Check the label or the maker’s data for your product.</p>
+<h3>What gap should I leave between deck boards?</h3>
+<p>Follow the decking manufacturer’s instructions. Gaps are often around 1/8 to 1/4 inch, but wood, composite and PVC products can differ.</p>
+<h3>How much waste should I add?</h3>
+<p>Many installers add about 10% for a straight layout and more for diagonal or picture-frame patterns. Your supplier can tell you what is typical for your product.</p>
+<h3>Does this include joists and fasteners?</h3>
+<p>No. This calculator counts surface boards only. Joists, beams, posts, footings, screws, hidden fasteners and railings need their own plan.</p>
+<h3>Why does the board length setting change the answer?</h3>
+<p>Each row is cut from whole boards, so a 16 foot board covers a 16 foot row in one piece while a 12 foot board needs a second board. Choosing the length that wastes the least is one way to save money.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="fence-post-calculator.html">Fence Post Calculator</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring Calculator</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="deck-material.js" defer></script>
+</body>
+</html>

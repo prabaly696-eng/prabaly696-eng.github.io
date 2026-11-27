@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concrete Calculator: Cubic Yards, Meters and Bags</title>
+<meta name="description" content="Find how much concrete a slab needs in cubic yards or cubic meters, with extra for waste. Add the bag yield to count bags. Includes the formula and an example.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/concrete-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Concrete Calculator: Cubic Yards, Meters and Bags">
+<meta property="og:description" content="Find how much concrete a slab needs in cubic yards or cubic meters, with extra for waste. Add the bag yield to count bags. Includes the formula and an example.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/concrete-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Concrete Calculator","item":"https://prabaly696-eng.github.io/measure-twice/concrete-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html" aria-current="page">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Concrete Calculator</p>
+<h1>Concrete Calculator</h1>
+<p class="lede">Find how much concrete a flat slab needs, in cubic yards or cubic meters. Add the yield printed on a bag of mix to see how many bags to buy.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Slab length","value":"10","hint":"Example: 10.","units":[["ft","feet"],["in","inches"]],"unit":"ft"},"metric":{"label":"Slab length","value":"3","hint":"Example: 3.","units":[["m","meters"],["cm","centimeters"]],"unit":"m"}}'>
+      <label for="length">Slab length</label>
+      <div class="input-row">
+        <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="length-hint">
+        <select id="lengthUnit" name="lengthUnit" data-unit aria-label="Unit for slab length"><option value="ft" selected>feet</option><option value="in">inches</option></select>
+      </div>
+      <p class="hint" id="length-hint">Example: 10.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Slab width","value":"10","hint":"Example: 10.","units":[["ft","feet"],["in","inches"]],"unit":"ft"},"metric":{"label":"Slab width","value":"3","hint":"Example: 3.","units":[["m","meters"],["cm","centimeters"]],"unit":"m"}}'>
+      <label for="width">Slab width</label>
+      <div class="input-row">
+        <input id="width" name="width" data-main type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="width-hint">
+        <select id="widthUnit" name="widthUnit" data-unit aria-label="Unit for slab width"><option value="ft" selected>feet</option><option value="in">inches</option></select>
+      </div>
+      <p class="hint" id="width-hint">Example: 10.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Thickness (inches)","value":"4","hint":"Example: 4."},"metric":{"label":"Thickness (centimeters)","value":"10","hint":"Example: 10."}}'>
+      <label for="thickness">Thickness (inches)</label>
+      <input id="thickness" name="thickness" data-main type="text" inputmode="decimal" autocomplete="off" value="4" aria-describedby="thickness-hint">
+      <p class="hint" id="thickness-hint">Example: 4.</p>
+    </div><div class="field">
+      <label for="qty">Number of slabs</label>
+      <input id="qty" name="qty" type="text" inputmode="decimal" autocomplete="off" value="1" aria-describedby="qty-hint">
+      <p class="hint" id="qty-hint">Use more than 1 for several identical slabs.</p>
+    </div><div class="field">
+      <label for="waste">Extra allowance (percent, optional)</label>
+      <input id="waste" name="waste" type="text" inputmode="decimal" autocomplete="off" value="10" aria-describedby="waste-hint">
+      <p class="hint" id="waste-hint">Leave blank for 0. Many people add 5% to 10%.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Bag yield (cubic feet, optional)","value":"","hint":"Printed on the bag. Example: 0.6."},"metric":{"label":"Bag yield (liters, optional)","value":"","hint":"Printed on the bag. Example: 17."}}'>
+      <label for="bagYield">Bag yield (cubic feet, optional)</label>
+      <input id="bagYield" name="bagYield" data-main type="text" inputmode="decimal" autocomplete="off" value="" aria-describedby="bagYield-hint">
+      <p class="hint" id="bagYield-hint">Printed on the bag. Example: 0.6.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the volume is calculated</h2>
+<p>A flat slab is a box, so its volume is length &times; width &times; thickness. The calculator changes every measurement to feet, finds the volume in cubic feet, then divides by 27 to get cubic yards (or by 35.31 for cubic meters). It then adds your extra allowance for spills and uneven ground.</p>
+<span class="formula">Volume (cu ft) = length (ft) &times; width (ft) &times; thickness (ft) &times; number of slabs    where thickness in feet = inches &divide; 12</span>
+<span class="formula">Volume (cu yd) = cubic feet &divide; 27</span>
+<span class="formula">Volume to order = volume &times; (1 + extra &divide; 100)</span>
+<span class="formula">Bags = round up (volume to order &divide; yield of one bag)</span>
+
+<h2>Worked example</h2>
+<p>A 10 ft by 10 ft slab, 4 inches thick, with 10% extra. The bag yield of 0.6 cubic feet is an example only. Read the real number on the bag you plan to use.</p>
+<ol><li>Area = 10 &times; 10 = <strong>100 sq ft</strong>.</li><li>Thickness = 4 &divide; 12 = <strong>0.333 ft</strong>.</li><li>Volume = 100 &times; 0.333 = <strong>33.3 cubic ft</strong> = 1.235 cubic yards.</li><li>With 10% extra = 33.3 &times; 1.10 = <strong>36.7 cubic ft</strong> = <strong>1.36 cubic yards</strong>.</li><li>Bags = round up (36.7 &divide; 0.6) = round up 61.1 = <strong>62 bags</strong>.</li></ol>
+
+<h2>Assumptions and limits</h2>
+<ul>
+<li>The slab is a flat rectangle with the same thickness everywhere. For several identical slabs, enter the number of slabs.</li>
+<li>This is the volume of concrete only. It does not include the gravel base, rebar or mesh, forms, sealer or finishing tools.</li>
+<li>The bag yield changes with the product and with how much water is added. Always use the number printed on the bag.</li>
+<li>It does not decide how thick or how strong a slab should be. Driveways, garage floors and anything that carries heavy loads need a proper design. Ask your local building department.</li>
+</ul>
+
+<h2>Before you buy</h2>
+<ul><li>Measure the thickness at the edges and in the middle. A dip in the ground takes more concrete.</li><li>Order a little extra. Running short in the middle of a pour is hard to fix.</li><li>Weather matters. Very hot, cold or wet days change how concrete sets.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>How thick should a concrete slab be?</h3>
+<p>It depends on the use. A walkway or patio slab is often about 4 inches (10 cm) thick, while driveways and floors that carry heavy loads are usually thicker and may need reinforcement. Follow the plan for your project and your local code.</p>
+<h3>How much extra concrete should I order?</h3>
+<p>Many people add about 5% to 10% for spills, uneven ground and over-digging. Running short in the middle of a pour is harder to fix than having a little left over.</p>
+<h3>How many bags of concrete are in a cubic yard?</h3>
+<p>An 80 pound bag of mix makes roughly 0.6 cubic feet, so one cubic yard (27 cubic feet) needs about 45 bags. Different bag sizes and brands vary, so check the yield printed on the bag.</p>
+<h3>Should I use bags or ready-mix delivery?</h3>
+<p>Bags are practical for small jobs. For larger pours, ready-mix delivered by truck is usually ordered by volume. Ask the supplier about minimum loads, delivery fees and how long you have to place the concrete.</p>
+<h3>Does this include the gravel base and rebar?</h3>
+<p>No. This is the volume of concrete only. Use the gravel calculator on this site to estimate the base, and ask your supplier about reinforcement.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="gravel-calculator.html">Gravel Calculator</a></li><li><a href="deck-material-calculator.html">Deck Material Calculator</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="concrete.js" defer></script>
+</body>
+</html>

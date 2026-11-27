@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mulch Calculator: Cubic Yards, Bags and Cost</title>
+<meta name="description" content="Find how many cubic yards or bags of mulch you need from area and depth. Add a price for cost. Includes a coverage chart, formula and worked example.">
+<link rel="canonical" href="https://prabaly696-eng.github.io/measure-twice/mulch-calculator.html">
+<meta name="theme-color" content="#F5B700">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Measure Twice">
+<meta property="og:title" content="Mulch Calculator: Cubic Yards, Bags and Cost">
+<meta property="og:description" content="Find how many cubic yards or bags of mulch you need from area and depth. Add a price for cost. Includes a coverage chart, formula and worked example.">
+<meta property="og:url" content="https://prabaly696-eng.github.io/measure-twice/mulch-calculator.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Measure Twice","item":"https://prabaly696-eng.github.io/measure-twice/"},{"@type":"ListItem","position":2,"name":"Mulch Calculator","item":"https://prabaly696-eng.github.io/measure-twice/mulch-calculator.html"}]}</script>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<!-- PLACEHOLDER (Google Search Console): after Google gives you a verification meta tag, paste it on the next line in index.html only. -->
+<!-- PLACEHOLDER (Google AdSense): only after Google approves this site, paste the AdSense script here. Do not add ad code before approval. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F5B700"/><path d="M6 5v13h13" fill="none" stroke="#17212B" stroke-width="3"/></svg><span>Measure Twice <small>Calculators</small></span></a>
+    <nav aria-label="Calculators"><ul><li><a href="roof-pitch-calculator.html">Roof Pitch</a></li><li><a href="deck-material-calculator.html">Deck Boards</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall</a></li><li><a href="gravel-calculator.html">Gravel</a></li><li><a href="mulch-calculator.html" aria-current="page">Mulch</a></li><li><a href="fence-post-calculator.html">Fence Posts</a></li><li><a href="concrete-calculator.html">Concrete</a></li><li><a href="paint-calculator.html">Paint</a></li><li><a href="flooring-tile-calculator.html">Tile and Flooring</a></li></ul></nav>
+  </div>
+</header>
+<div class="tape" aria-hidden="true"></div>
+<main id="main">
+<div class="wrap">
+<p class="crumbs"><a href="index.html">Home</a> &rsaquo; Mulch Calculator</p>
+<h1>Mulch Calculator</h1>
+<p class="lede">Find how much mulch a garden bed needs, in cubic yards or cubic meters and in bags. Switch between US and Metric units, and add a price to estimate bulk cost.</p>
+
+<div class="calc-grid">
+  <div class="panel">
+    <h2 class="panel-title">Your measurements</h2>
+    <div class="units" role="group" aria-label="Units">
+      <button type="button" data-sys="us" aria-pressed="true">US (ft, in)</button>
+      <button type="button" data-sys="metric" aria-pressed="false">Metric (m, cm)</button>
+    </div>
+    <form id="calc-form" novalidate>
+    <div class="fields">
+    <div class="field" data-spec='{"us":{"label":"Garden length","value":"12","hint":"Example: 12.","units":[["ft","feet"],["in","inches"]],"unit":"ft"},"metric":{"label":"Garden length","value":"4","hint":"Example: 4.","units":[["m","meters"],["cm","centimeters"]],"unit":"m"}}'>
+      <label for="length">Garden length</label>
+      <div class="input-row">
+        <input id="length" name="length" data-main type="text" inputmode="decimal" autocomplete="off" value="12" aria-describedby="length-hint">
+        <select id="lengthUnit" name="lengthUnit" data-unit aria-label="Unit for garden length"><option value="ft" selected>feet</option><option value="in">inches</option></select>
+      </div>
+      <p class="hint" id="length-hint">Example: 12.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Garden width","value":"8","hint":"Example: 8.","units":[["ft","feet"],["in","inches"]],"unit":"ft"},"metric":{"label":"Garden width","value":"2.5","hint":"Example: 2.5.","units":[["m","meters"],["cm","centimeters"]],"unit":"m"}}'>
+      <label for="width">Garden width</label>
+      <div class="input-row">
+        <input id="width" name="width" data-main type="text" inputmode="decimal" autocomplete="off" value="8" aria-describedby="width-hint">
+        <select id="widthUnit" name="widthUnit" data-unit aria-label="Unit for garden width"><option value="ft" selected>feet</option><option value="in">inches</option></select>
+      </div>
+      <p class="hint" id="width-hint">Example: 8.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Mulch depth","value":"3","hint":"Example: 3.","units":[["in","inches"],["ft","feet"]],"unit":"in"},"metric":{"label":"Mulch depth","value":"7","hint":"Example: 7.","units":[["cm","centimeters"],["m","meters"]],"unit":"cm"}}'>
+      <label for="depth">Mulch depth</label>
+      <div class="input-row">
+        <input id="depth" name="depth" data-main type="text" inputmode="decimal" autocomplete="off" value="3" aria-describedby="depth-hint">
+        <select id="depthUnit" name="depthUnit" data-unit aria-label="Unit for mulch depth"><option value="in" selected>inches</option><option value="ft">feet</option></select>
+      </div>
+      <p class="hint" id="depth-hint">Example: 3.</p>
+    </div><div class="field" data-spec='{"us":{"label":"Price per cubic yard (optional)","value":"","hint":"In dollars, for a bulk cost estimate. Example: 35."},"metric":{"label":"Price per cubic meter (optional)","value":"","hint":"In your own currency, for a bulk cost estimate. Example: 40."}}'>
+      <label for="price">Price per cubic yard (optional)</label>
+      <input id="price" name="price" data-main type="text" inputmode="decimal" autocomplete="off" value="" aria-describedby="price-hint">
+      <p class="hint" id="price-hint">In dollars, for a bulk cost estimate. Example: 35.</p>
+    </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+    </form>
+  </div>
+  <div class="panel result-panel">
+    <h2 class="panel-title">Result</h2>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="result" role="status" aria-live="polite"><p class="empty">Enter your measurements and tap Calculate.</p></div>
+  </div>
+</div>
+
+<!-- AD SLOT (PLACEHOLDER): after AdSense approves this site, paste an ad unit here, below the calculator and its result.
+     Keep ads away from the Calculate and Reset buttons. Do not add ad code before approval. -->
+
+<div class="prose">
+<h2>How the amount is calculated</h2>
+<p>Mulch is sold in bags (measured in cubic feet) and in bulk (measured in cubic yards). The calculator converts your measurements to feet, finds the volume, and shows it both ways.</p>
+<span class="formula">Area (sq ft) = length (ft) &times; width (ft)</span>
+<span class="formula">Volume (cu ft) = area &times; depth (ft)    where depth in feet = inches &divide; 12</span>
+<span class="formula">Volume (cu yd) = cubic feet &divide; 27</span>
+<span class="formula">Bags = round up (cubic feet &divide; bag size in cubic feet)</span>
+
+<h2>Worked example</h2>
+<p>A garden bed 12 ft long and 8 ft wide, mulched 3 inches deep. The price of $35 per cubic yard is an example only.</p>
+<ol><li>Area = 12 &times; 8 = <strong>96 sq ft</strong>.</li><li>Volume = 96 &times; (3 &divide; 12) = <strong>24 cubic ft</strong>.</li><li>Cubic yards = 24 &divide; 27 = <strong>0.89 cubic yards</strong>.</li><li>Bags of 2 cubic feet = round up (24 &divide; 2) = <strong>12</strong>. Bags of 3 cubic feet = round up (24 &divide; 3) = <strong>8</strong>.</li><li>Bulk cost = 0.89 &times; $35 = <strong>$31.11</strong> (the calculator uses the unrounded volume).</li></ol>
+
+<h2>How much area does one cubic yard cover?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Depth</th><th>Area covered by 1 cubic yard</th></tr></thead>
+<tbody><tr><td>1 in</td><td>324 sq ft</td></tr><tr><td>2 in</td><td>162 sq ft</td></tr><tr><td>3 in</td><td>108 sq ft</td></tr><tr><td>4 in</td><td>81 sq ft</td></tr><tr><td>6 in</td><td>54 sq ft</td></tr></tbody>
+</table></div>
+<p>One cubic yard is the same as 13.5 bags of 2 cubic feet, or 9 bags of 3 cubic feet. In metric, one cubic meter covers 10 square meters at 10 cm deep, and it equals 20 bags of 50 liters.</p>
+
+<h2>Before you buy</h2>
+<ul><li>Check how much old mulch is already there before you add more. A thick layer can hold too much water.</li><li>Order a little extra for top-ups. Mulch settles and fades over time.</li><li>Leave a gap around tree trunks and plant stems.</li></ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>How deep should mulch be?</h3>
+<p>Garden guides commonly suggest about 2 to 4 inches, depending on the plants and the mulch. Keep mulch a few inches away from tree trunks and plant stems.</p>
+<h3>How many bags of mulch are in a cubic yard?</h3>
+<p>A cubic yard is 27 cubic feet. That is 13.5 bags of 2 cubic feet or 9 bags of 3 cubic feet. Bag sizes vary by brand, so check the label.</p>
+<h3>Is bulk mulch cheaper than bags?</h3>
+<p>For large areas, bulk delivery is often cheaper per cubic foot, but delivery fees and minimum orders vary. Compare the total cost for your quantity.</p>
+<h3>How do I measure a curved bed?</h3>
+<p>Split the bed into rectangles, calculate each one, and add the results. A little extra covers the gaps and rounded edges.</p>
+<h3>Why are the bag counts rounded up?</h3>
+<p>You cannot buy part of a bag, so the calculator rounds up. The exact volume is shown too, so you can decide whether to buy one less.</p>
+</div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="gravel-calculator.html">Gravel Calculator</a></li><li><a href="retaining-wall-calculator.html">Retaining Wall Calculator</a></li><li><a href="fence-post-calculator.html">Fence Post Calculator</a></li></ul>
+</div>
+</div>
+</main>
+<div class="tape" aria-hidden="true"></div>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <ul aria-label="About this site">
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+    <p>Results are estimates for planning. Confirm quantities with your supplier and follow your local building rules.</p>
+    <p>&copy; 2026 Measure Twice Calculators</p>
+  </div>
+</footer>
+<script src="main.js" defer></script>
+<script src="mulch.js" defer></script>
+</body>
+</html>
